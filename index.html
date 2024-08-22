@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee spot - eBay業務を完全網羅するマーケティングツール</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1E3A8A;
+            --secondary-color: #3B82F6;
+            --accent-color: #FCD34D;
+            --light-blue: #EFF6FF;
+            --text-color: #333;
+            --white: #fff;
+            --gray: #6B7280;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        header.scrolled {
+            background-color: rgba(30, 58, 138, 0.9);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 60px;
+        }
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            animation: fadeInUp 1s ease;
+        }
+        h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeIn 1.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary-color);
+        }
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: var(--light-blue);
+            transition: all 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .feature-details {
+            padding: 80px 0;
+            background-color: var(--light-blue);
+        }
+        .feature-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .feature-detail.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .feature-detail.reverse {
+            flex-direction: row-reverse;
+        }
+        .feature-image {
+            flex: 1;
+            padding: 20px;
+        }
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .feature-text {
+            flex: 1;
+            padding: 40px;
+        }
+        .feature-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .feature-text ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        .feature-text li {
+            margin-bottom: 10px;
+        }
+        .feature-text em {
+            display: block;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--gray);
+        }
+        .testimonials {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial {
+            background-color: var(--light-blue);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .demo {
+            text-align: center;
+            padding: 80px 0;
+            background-color: var(--light-blue);
+        }
+        .demo video {
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .price-card {
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .price-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .price-card.featured {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        .price-card .price {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .price-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        .price-card ul li {
+            margin-bottom: 10px;
+        }
+        .faq {
+            background-color: var(--light-blue);
+            padding: 80px 0;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            color: var(--gray);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1;
+            margin-bottom: 20px;
+            min-width: 200px;
+        }
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5em;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+        }
+        .scroll-to-top:hover {
+            background-color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 20px;
+            }
+            .hero {
+                padding: 100px 0 50px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .feature-detail, .feature-detail.reverse {
+                flex-direction: column;
+            }
+            .feature-image, .feature-text {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Bee spot</div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">機能</a></li>
+                        <li><a href="#feature-details">詳細</a></li>
+                        <li><a href="#testimonials">ユーザーの声</a></li>
+                        <li><a href="#demo">デモ</a></li>
+                        <li><a href="#pricing">料金</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>eBay業務を完全網羅！待望のマーケティングツール</h1>
+            <p>仕入れ管理、チャット、外注タスク、売上管理、確定申告まで、Bee spotがeBayビジネスを完全サポート</p>
+            <a href="#" class="cta-button">無料トライアルを開始</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Bee spotの主要機能</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                    <h3>チャット機能</h3>
+                    <p>使いやすいチャット機能で、サプライヤーやバイヤーとのコミュニケーションをスムーズに。</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-box"></i></div>
+                    <h3>仕入れ管理</h3>
+                    <p>メルカリ等からの仕入れを効率的に管理。発送状況や到着状況も一目で把握できます。</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+                    <h3>外注タスク管理</h3>
+                    <p>プロジェクト進行を見える化し、外注タスクを一括管理。進捗状況のトラッキングが容易に。</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>売上と申告</h3>
+                    <p>eBayと連携し、売上記録から確定申告までをワンクリックで自動化。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature-details" class="feature-details">
+        <div class="container">
+            <h2>Bee spotが提供する具体的なメリット</h2>
+            <p>各機能がどのようにあなたのeBayビジネスを強化するか、詳しくご紹介します。</p>
+
+            <div class="feature-detail">
+                <div class="feature-image">
+                    <img src="https://i.postimg.cc/yxDJvY2K/1.png" alt="チャット機能のイメージ">
+                </div>
+                <div class="feature-text">
+                    <h3><i class="fas fa-comments"></i> 高度なチャット機能</h3>
+                    <p>サプライヤーやバイヤーとのコミュニケーションを一元管理し、ビジネスの効率を大幅に向上させます。</p>
+                    <ul>
+                        <li><strong>自動翻訳機能:</strong> 海外のサプライヤーとも言語の壁なくスムーズにやり取り</li>
+                        <li><strong>テンプレート機能:</strong> よくある問い合わせに瞬時に返答し、対応時間を短縮</li>
+                        <li><strong>チャット履歴検索:</strong> 過去のやり取りを素早く参照し、一貫したサービスを提供</li>
+                    </ul>
+                    <p><em>利用イメージ：海外サプライヤーからの在庫確認メッセージが届いたら、自動翻訳で内容を理解し、適切なテンプレート返信を選択。数クリックで効率的なコミュニケーションが可能に。</em></p>
+                </div>
+            </div>
+
+            <div class="feature-detail reverse">
+                <div class="feature-image">
+                    <img src="https://i.postimg.cc/RZ53Lmdr/3.png" alt="仕入れ管理のイメージ">
+                </div>
+                <div class="feature-text">
+                    <h3><i class="fas fa-box"></i> 統合仕入れ管理システム</h3>
+                    <p>複数の仕入れ先からの商品を一元管理し、在庫切れや過剰在庫のリスクを最小限に抑えます。</p>
+                    <ul>
+                        <li><strong>自動発注システム:</strong> 在庫が指定レベルを下回ると自動で発注書を作成</li>
+                        <li><strong>仕入れ先比較:</strong> 複数の仕入れ先の価格やリードタイムを簡単に比較</li>
+                        <li><strong>トレンド分析:</strong> 過去の販売データを基に最適な仕入れ量を提案</li>
+                    </ul>
+                    <p><em>利用イメージ：ダッシュボードで人気商品の在庫が減少していることに気づいたら、ワンクリックで最適な仕入れ先に自動発注。季節変動も考慮した仕入れ量の提案を受けられます。</em></p>
+                </div>
+            </div>
+
+            <div class="feature-detail">
+                <div class="feature-image">
+                    <img src="https://i.postimg.cc/bN2DnrQH/4.png" alt="外注タスク管理のイメージ">
+                </div>
+                <div class="feature-text">
+                    <h3><i class="fas fa-tasks"></i> 効率的な外注タスク管理</h3>
+                    <p>外注スタッフとのタスク管理を効率化し、プロジェクトの進行を可視化します。</p>
+                    <ul>
+                        <li><strong>タスク割り当て:</strong> 適切なスキルを持つスタッフに最適なタスクを自動で提案</li>
+                        <li><strong>進捗トラッキング:</strong> リアルタイムで各タスクの進捗状況を確認</li>
+                        <li><strong>自動リマインダー:</strong> 締め切りが近づくとスタッフに自動で通知</li>
+                    </ul>
+                    <p><em>利用イメージ：新商品の写真撮影タスクを作成すると、システムが適切なカメラマンを提案。タスクの進捗はリアルタイムで確認でき、遅延の兆候があればすぐに対応可能。</em></p>
+                </div>
+            </div>
+
+            <div class="feature-detail reverse">
+                <div class="feature-image">
+                    <img src="https://i.postimg.cc/T3VKksNK/2.png" alt="売上管理と申告のイメージ">
+                </div>
+                <div class="feature-text">
+                    <h3><i class="fas fa-chart-line"></i> 自動化された売上管理と申告</h3>
+                    <p>売上データの自動集計から確定申告書類の作成まで、面倒な経理作業を大幅に削減します。</p>
+                    <ul>
+                        <li><strong>リアルタイムレポート:</strong> 日次、週次、月次の売上レポートを自動生成</li>
+                        <li><strong>経費トラッキング:</strong> レシートのスキャンで自動的に経費を記録</li>
+                        <li><strong>税金計算:</strong> 売上と経費から自動で税金を計算し、申告書類を作成</li>
+                    </ul>
+                    <p><em>利用イメージ：日々の売上がリアルタイムでグラフ化され、トレンドが一目で分かります。確定申告の時期には、蓄積されたデータを基に数クリックで申告書類を作成できます。</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>ユーザーの声</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <img src="/api/placeholder/80/80" alt="田中さん">
+                    <p>"Bee spotのチャット機能で、サプライヤーとのコミュニケーションが格段に楽になりました。メッセージの整理や検索が簡単で、ビジネスの効率が大幅に向上しました。"</p>
+                    <p><strong>- 田中さん（eBayセラー歴5年）</strong></p>
+                </div>
+                <div class="testimonial">
+                    <img src="/api/placeholder/80/80" alt="佐藤さん">
+                    <p>"仕入れ管理機能が素晴らしいです。在庫状況を常に把握でき、適切なタイミングで補充できるようになりました。売上が20%も増加しました！"</p>
+                    <p><strong>- 佐藤さん（eBayビジネス2年目）</strong></p>
+                </div>
+                <div class="testimonial">
+                    <img src="/api/placeholder/80/80" alt="鈴木さん">
+                    <p>"確定申告の時間が90%削減されました。自動化機能のおかげで、ビジネスの成長に集中できるようになりました。本当に助かっています。"</p>
+                    <p><strong>- 鈴木さん（個人セラー）</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2>Bee spotのデモ</h2>
+            <video width="80%" controls poster="/api/placeholder/800/450">
+                <source src="demo.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
+            <p>上のビデオでBee spotの主要機能をご覧いただけます。チャット機能、仕入れ管理、タスク管理、そして売上管理まで、すべての機能がいかに簡単に使えるかをご確認ください。</p>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>料金プラン</h2>
+            <p>あなたのビジネスに最適なプランをお選びください。</p>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>スタータープラン</h3>
+                    <p class="price">¥5,000<span>/月</span></p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 基本的なチャット機能</li>
+                        <li><i class="fas fa-check"></i> 仕入れ管理（上限100アイテム）</li>
+                        <li><i class="fas fa-check"></i> 基本的な売上レポート</li>
+                        <li><i class="fas fa-times"></i> 外注タスク管理</li>
+                        <li><i class="fas fa-times"></i> API連携</li>
+                    </ul>
+                    <a href="#" class="cta-button">選択する</a>
+                </div>
+                <div class="price-card featured">
+                    <h3>プロフェッショナルプラン</h3>
+                    <p class="price">¥10,000<span>/月</span></p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 高度なチャット機能</li>
+                        <li><i class="fas fa-check"></i> 無制限の仕入れ管理</li>
+                        <li><i class="fas fa-check"></i> 詳細な売上分析</li>
+                        <li><i class="fas fa-check"></i> 外注タスク管理</li>
+                        <li><i class="fas fa-check"></i> 基本的なAPI連携</li>
+                    </ul>
+                    <a href="#" class="cta-button">選択する</a>
+                </div>
+                <div class="price-card">
+                    <h3>エンタープライズプラン</h3>
+                    <p class="price">お問い合わせください</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> すべてのプロ機能</li>
+                        <li><i class="fas fa-check"></i> 専属サポート</li>
+                        <li><i class="fas fa-check"></i> カスタム機能開発</li>
+                        <li><i class="fas fa-check"></i> 高度なAPI連携</li>
+                        <li><i class="fas fa-check"></i> データ分析サポート</li>
+                    </ul>
+                    <a href="#" class="cta-button">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>よくある質問</h2>
+            <div class="faq-item">
+                <p class="faq-question">Bee spotは初心者でも使いやすいですか？</p>
+                <p class="faq-answer">はい、Bee spotは直感的なインターフェースを持ち、初心者の方でも簡単に使い始めることができます。また、詳細なガイドやサポートも用意していますので、安心してご利用いただけます。</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">無料トライアルはありますか？</p>
+                <p class="faq-answer">はい、14日間の無料トライアルをご用意しています。この期間中にBee spotの全機能をお試しいただけます。クレジットカード情報は不要で、期間終了後に自動で課金されることはありません。</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">eBay以外のプラットフォームにも対応していますか？</p>
+                <p class="faq-answer">現在はeBayに特化していますが、将来的には他のeコマースプラットフォームにも対応する予定です。具体的な計画については、ニュースレターやSNSで随時お知らせいたします。</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">データのセキュリティは大丈夫ですか？</p>
+                <p class="faq-answer">はい、Bee spotではお客様のデータセキュリティを最優先事項として扱っています。最新の暗号化技術を使用し、定期的なセキュリティ監査を行っています。また、EUのGDPRを含む国際的なデータ保護規制にも準拠しています。</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">カスタマーサポートはどのように受けられますか？</p>
+                <p class="faq-answer">メール、チャット、電話によるサポートを提供しています。プロフェッショナルプラン以上では、優先サポートが受けられます。また、ヘルプセンターには詳細なドキュメントやチュートリアルビデオも用意しています。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bee spot</h3>
+                    <p>eBayビジネスを完全サポート</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>クイックリンク</h3>
+                    <ul>
+                        <li><a href="#features">機能</a></li>
+                        <li><a href="#pricing">料金プラン</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">ブログ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <p>Email: support@beespot.com</p>
+                    <p>電話: 03-1234-5678</p>
+                </div>
+                <div class="footer-section">
+                    <h3>ニュースレター登録</h3>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="メールアドレスを入力" required>
+                        <button type="submit" class="cta-button">登録</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bee spot. All rights reserved.</p>
+                <p><a href="#">利用規約</a> | <a href="#">プライバシーポリシー</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // ヘッダーのスクロール効果
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQの開閉機能
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if (question.classList.contains('active')) {
+                    answer.style.display = 'block';
+                } else {
+                    answer.style.display = 'none';
+                }
+            });
+        });
+
+        // スクロールトップボタン
+        var scrollToTopBtn = document.querySelector('.scroll-to-top');
+        var rootElement = document.documentElement;
+
+        function handleScroll() {
+            var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+            if ((rootElement.scrollTop / scrollTotal) > 0.20) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        }
+
+        function scrollToTop() {
+            rootElement.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        scrollToTopBtn.addEventListener('click', scrollToTop);
+        document.addEventListener('scroll', handleScroll);
+
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 機能詳細セクションのアニメーション
+        function animateFeatures() {
+            var features = document.querySelectorAll('.feature-detail');
+            
+            features.forEach(feature => {
+                var featurePosition = feature.getBoundingClientRect().top;
+                var screenPosition = window.innerHeight / 1.3;
+                
+                if(featurePosition < screenPosition) {
+                    feature.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateFeatures);
+        window.addEventListener('load', animateFeatures);
+
+        // ニュースレターフォームの送信
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('ニュースレターに登録していただき、ありがとうございます！');
+            this.reset();
+        });
+
+        // 料金プランのホバーエフェクト
+        document.querySelectorAll('.price-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transform = 'scale(1.05)';
+                card.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+            });
+            card.addEventListener('mouseout', () => {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // モバイルナビゲーションの切り替え
+        const mobileNavToggle = document.createElement('div');
+        mobileNavToggle.classList.add('mobile-nav-toggle');
+        mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.querySelector('header .container').appendChild(mobileNavToggle);
+
+        mobileNavToggle.addEventListener('click', () => {
+            const nav = document.querySelector('header nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // ウィンドウのリサイズ時にモバイルナビゲーションをリセット
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                document.querySelector('header nav').style.display = 'block';
+            } else {
+                document.querySelector('header nav').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
