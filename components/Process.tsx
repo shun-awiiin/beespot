@@ -1,29 +1,15 @@
 export default function Process() {
   const steps = [
     {
-      title: "無料デモ・ニーズヒアリング",
-      description: "Beeの機能をご紹介し、あなたのビジネスニーズをお伺いします。",
+      title: "無料トライアルに申し込む",
+      description: "申し込み後連絡をする",
     },
     {
-      title: "AIチャット返信機能の導入",
-      description: "まずは効果を実感しやすいAIチャット返信機能から始めましょう。",
+      title: "新規登録→ログインをする",
+      description: "以下の動画マニュアルを見て、登録を進めてください",
     },
-    {
-      title: "メールマーケティング機能の活用",
-      description: "過去の顧客へのアプローチで、リピート率向上を目指します。",
-    },
-    {
-      title: "為替連動価格調整の設定",
-      description: "為替変動に応じた自動価格調整で、利益を安定させます。",
-    },
-    {
-      title: "税務・在庫管理の統合",
-      description: "売上、経費、仕入れを一元管理し、正確な利益把握を実現します。",
-    },
-    {
-      title: "継続的なサポートと機能拡張",
-      description: "新機能の追加や、よりスケーラブルな仕組みづくりをサポートします。",
-    },
+    
+
   ]
 
   return (
@@ -48,6 +34,18 @@ export default function Process() {
           Beeは、AIチャット返信やメールマーケティングなど、すぐに効果を実感できる機能から段階的に導入可能です。
           あなたのペースに合わせて、eBayビジネスの効率化と収益向上を実現しましょう。
         </p>
+
+        {/* ここからYouTube動画の埋め込み */}
+        <div className="mt-10 relative pb-[56.25%]">
+          <iframe
+            className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/rFUvorkF9ic"
+            title="YouTube video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </section>
   )

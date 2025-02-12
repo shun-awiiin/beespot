@@ -22,10 +22,10 @@ export default function LandingPage() {
       {/* <Features /> */}
       {/* <Benefits /> */}
       {/* <CaseStudies /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* <Pricing /> */}
       {/* <Roadmap /> */}
-      <FAQ />
+      {/* <FAQ /> */}
       {/* <Support /> */}
       <Process />
       <FinalCTA />

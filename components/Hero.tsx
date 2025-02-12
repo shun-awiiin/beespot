@@ -34,15 +34,15 @@ export default function Hero() {
             </Button> */}
           </div>
         </div>
-        <div className="w-full md:w-1/2 animate-fade-in-up animation-delay-600">
+        <div className="w-full md:w-3/4 animate-fade-in-up animation-delay-600">
           <div className="relative w-full">
-            <div className="absolute -inset-4 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 opacity-75 blur-2xl rounded-full"></div>
+            <div className="absolute -inset-12 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 opacity-75 blur-2xl rounded-full"></div>
             <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%20(%E3%83%AD%E3%82%B3%E3%82%99)%20(1)-SVPx9eHjeFRbbpei5B2D51oPKgELAb.png"
+                src="https://i.postimg.cc/bNfhbq87/image.png"
                 alt="AIチャットボットインターフェースを操作する様子"
-                width={400}
-                height={300}
+                width={800}
+                height={600}
                 className="w-full h-auto rounded-lg shadow-2xl"
                 priority
               />
