@@ -12,11 +12,12 @@ import Process from "@/components/Process"
 import FinalCTA from "@/components/FinalCTA"
 import Footer from "@/components/Footer"
 import Roadmap from "@/components/Roadmap"
-
+import EmphasizedFeatures from "@/components/EmphasizedFeatures"
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
       <Hero />
+      <EmphasizedFeatures />
       <Concept />
       {/* <Problems /> */}
       {/* <Features /> */}

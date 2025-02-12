@@ -11,7 +11,8 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="w-full md:w-1/2 text-left md:pr-8 mb-8 md:mb-0">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up drop-shadow-lg">
-            AIカスタマイズされた最先端の顧客対応
+          スマホで完結！
+          AIで顧客対応を革新
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8 animate-fade-in-up animation-delay-200 drop-shadow">
           -時間・ストレス・生産性の解放、ここに極まる。
