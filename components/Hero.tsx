@@ -20,36 +20,32 @@ export default function Hero() {
           -AI駆動のチャット返信、為替連動価格調整、税務管理まで。 Beeが全てを一元化し、小さい時間の解放がチームの成果を最大化させます。
           </p>
           <div className="flex flex-col sm:flex-row justify-start gap-4 animate-fade-in-up animation-delay-400">
-            <Button
-              size="lg"
-              className="bg-white/80 text-orange-800 hover:bg-white transition-colors duration-300 font-semibold backdrop-blur-sm"
-            >
-              無料で始める
-            </Button>
-            {/* <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-orange-300 text-orange-100 bg-orange-500/30 hover:bg-orange-400/50 hover:border-orange-200 transition-all duration-300 font-semibold backdrop-blur-sm"
-            >
-              機能詳細を見る
-            </Button> */}
-          </div>
+          <Button
+            size="lg"
+            className="bg-white/80 text-orange-800 hover:bg-white transition-colors duration-300 font-semibold backdrop-blur-sm"
+            onClick={() => window.open("https://youtu.be/y8Eyj2nfgmE", "_blank")}
+          >
+            無料で始める ※現在は動画リンクになっております
+          </Button>
+        </div>
+
         </div>
         <div className="w-full md:w-3/4 animate-fade-in-up animation-delay-600">
-          <div className="relative w-full">
-            <div className="absolute -inset-12 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 opacity-75 blur-2xl rounded-full"></div>
-            <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
-              <Image
-                src="https://i.postimg.cc/bNfhbq87/image.png"
-                alt="AIチャットボットインターフェースを操作する様子"
-                width={800}
-                height={600}
-                className="w-full h-auto rounded-lg shadow-2xl"
-                priority
-              />
-            </div>
+        <div className="relative w-full">
+          <div className="absolute -inset-12 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 opacity-75 blur-2xl rounded-full"></div>
+          <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
+            <iframe
+              src="https://www.youtube.com/embed/y8Eyj2nfgmE?autoplay=1&mute=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full aspect-video rounded-lg shadow-2xl"
+            />
           </div>
         </div>
+      </div>
+
       </div>
     </section>
   )
