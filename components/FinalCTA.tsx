@@ -10,7 +10,7 @@ export default function FinalCTA() {
           Beeの革新的な機能をお試しください。eBayビジネスの効率化と収益向上を実感しましょう。
         </p>
         <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-100 transition-colors duration-300 mr-4">
-          無料トライアルを開始 ※Youtube Liveで当日お待ちしております
+          無料で始める
         </Button>
         <p className="mt-6 text-sm opacity-75">
           
