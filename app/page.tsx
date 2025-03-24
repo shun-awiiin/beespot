@@ -12,7 +12,7 @@ export default function HomePage() {
       <EmphasizedFeatures />
       <Concept />
       <Benefits />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FinalCTA />
     </div>
   )
