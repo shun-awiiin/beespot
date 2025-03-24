@@ -7,8 +7,8 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">会社情報</h3>
           <p>株式会社Bee</p>
-          <p>〒100-0004</p>
-          <p>東京都千代田区大手町1-1-1</p>
+          <p>〒101-0041</p>
+          <p>東京都千代田区神田須田町1-7-8 VORT秋葉原Ⅳ 2F</p>
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-4">製品情報</h3>
@@ -24,9 +24,9 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/case-studies" className="hover:text-orange-300 transition-colors duration-300">
+              {/* <Link href="/case-studies" className="hover:text-orange-300 transition-colors duration-300">
                 導入事例
-              </Link>
+              </Link> */}
             </li>
           </ul>
         </div>
@@ -38,7 +38,7 @@ export default function Footer() {
                 お問い合わせ
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/faq" className="hover:text-orange-300 transition-colors duration-300">
                 よくある質問
               </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
               <Link href="/support" className="hover:text-orange-300 transition-colors duration-300">
                 サポート体制
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div>
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-8 text-center">
-        <p className="text-orange-200">&copy; 2023 株式会社AIワークフロー All rights reserved.</p>
+        <p className="text-orange-200">&copy; 2025 株式会社Bee All rights reserved.</p>
       </div>
     </footer>
   )

@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Bee AIカスタマイズされた最先端の顧客対応',
-  description: 'AIカスタマイズされた最先端の顧客対応 時間・ストレス・生産性の解放、ここに極まる。AI駆動のチャット返信、為替連動価格調整、税務管理まで。 Beeが全てを一元化し、小さい時間の解放がチームの成果を最大化させます'
+  title: 'Bee | AIで進化するeBayセラー業務管理ツール',
+  description: 'AIチャット返信・為替連動価格調整・税務管理まで。eBayセラーのための業務効率化プラットフォーム。時間・ストレス・生産性の解放を実現し、あなたのグローバルECビジネスを次のレベルへ。'
 }
 
 export default function RootLayout({
@@ -12,8 +14,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="ja">
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }

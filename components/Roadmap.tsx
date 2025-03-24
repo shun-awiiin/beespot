@@ -10,7 +10,7 @@ export default function Roadmap() {
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4">仕入れ価格の自動連動</h3>
-            <p>エキスポ3（または4）と連携し、仕入先URLや価格を自動取得。Beeでの一元管理を可能にします。</p>
+            <p>連携し、仕入先URLや価格を自動取得。Beeでの一元管理を可能にします。</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4">詳細な税務管理ダッシュボード</h3>

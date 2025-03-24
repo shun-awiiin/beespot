@@ -23,9 +23,9 @@ export default function Hero() {
           <Button
             size="lg"
             className="bg-white/80 text-orange-800 hover:bg-white transition-colors duration-300 font-semibold backdrop-blur-sm"
-            onClick={() => window.open("https://youtu.be/y8Eyj2nfgmE", "_blank")}
+            onClick={() => window.open("https://bee-marketing.xyz/#/", "_blank")}
           >
-            無料で始める ※現在は動画リンクになっております
+            無料で始める
           </Button>
         </div>
 
@@ -35,7 +35,7 @@ export default function Hero() {
           <div className="absolute -inset-12 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 opacity-75 blur-2xl rounded-full"></div>
           <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
             <iframe
-              src="https://www.youtube.com/embed/y8Eyj2nfgmE?autoplay=1&mute=1"
+              src="https://www.youtube.com/embed/fXET9lDGpz0?autoplay=1&mute=1"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
