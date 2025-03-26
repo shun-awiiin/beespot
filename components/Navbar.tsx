@@ -87,12 +87,12 @@ export default function Navbar() {
             >
               機能
             </Link>
-            <Link 
+            {/* <Link 
               href="/pricing" 
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/pricing')} hover:text-orange-600 hover:bg-orange-50`}
             >
               料金
-            </Link>
+            </Link> */}
             <Link 
               href="/about" 
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/about')} hover:text-orange-600 hover:bg-orange-50`}
