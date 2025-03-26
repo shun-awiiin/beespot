@@ -83,10 +83,10 @@ export default function AboutUs() {
                   </dd>
                 </div>
                 
-                <div className="grid grid-cols-3 gap-4 border-b border-gray-100 pb-3">
+                {/* <div className="grid grid-cols-3 gap-4 border-b border-gray-100 pb-3">
                   <dt className="font-semibold text-gray-700">従業員数</dt>
                   <dd className="col-span-2">1名（2025年2月現在）</dd>
-                </div>
+                </div> */}
               </dl>
             </div>
           </div>

@@ -37,7 +37,7 @@ export default function Contact() {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-orange-50 to-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-orange-800">お問い合わせ</h2>
+        {/* <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-orange-800">お問い合わせ</h2> */}
         <p className="text-lg text-center mb-12 max-w-3xl mx-auto">
           Beeに関するご質問、導入のご相談、機能へのご要望など、お気軽にお問い合わせください。
           専門スタッフが丁寧にお答えします。
