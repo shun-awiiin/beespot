@@ -203,8 +203,8 @@ export default function Pricing() {
 
           <p className="mt-6 text-center text-sm text-gray-500">
             エンタープライズプランは個別相談（
-            <a href="mailto:sales@bee-ebay.jp" className="text-orange-600 underline">
-              sales@bee-ebay.jp
+            <a href="mailto:info@bee-group.net" className="text-orange-600 underline">
+              info@bee-group.net
             </a>
             ）
           </p>
